@@ -30,26 +30,26 @@ for (let i = 0; i < timeArray.length; i++) {
         timeArray[i].addClass('past')
     }
 }
-// console.log()
 
 // get key from local storage render to text area (if there is text or not?)
 function renderText(params) {
-    
+    for (let i = 0; i < timeArray.length; i++) {
+        var keyName = timeArray[i].attr('id');
+        var renderReady = localStorage.getItem(keyName);
+        if (null != renderReady) {
+           timeArray[i].val(renderReady);
+        }      
+    }    
 }
 
-
-// textarea id ~ set key
-// set textarea content to relative key (hour)
 function saveText(event) {
     var target = $(event.currentTarget.previousElementSibling)
     var keyName = target.attr('id');
-    localStorage.setItem(keyName, target.val())
+    localStorage.setItem(keyName, target.val());
     console.log(keyName);
 }
 
 $(".saveBtn").on("click", function(event) {
     saveText(event)
-    // localStorage.setItem("", )
-    // console.log("btn clicked");
 })
-// saveBtn.addEventListener()
+renderText();
