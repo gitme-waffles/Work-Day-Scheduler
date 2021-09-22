@@ -11,8 +11,11 @@ var hour14 = $("#hour-14");
 var hour15 = $("#hour-15");
 var hour16 = $("#hour-16");
 var hour17 = $("#hour-17");
-const offSet = 9;
+var saveBtn = $(".saveBtn")
+
+// time
 var currentTime = moment()
+const offSet = 9;
 currentTime.hour()
 
 var timeArray = [hour9, hour10, hour11, hour12, hour13, hour14, hour15, hour16, hour17];
@@ -27,16 +30,26 @@ for (let i = 0; i < timeArray.length; i++) {
         timeArray[i].addClass('past')
     }
 }
-console.log()
-// function bananas() {
+// console.log()
 
-// if (moment().hour() < i) {
-//     hour9.addClass('past')
-// } else if (moment().hour() == i) {
-//     hour9.addClass('present')
-// } else {
-//     hour9.addClass('future')
-// }
-// }
+// get key from local storage render to text area (if there is text or not?)
+function renderText(params) {
+    
+}
 
-// bananas();
+
+// textarea id ~ set key
+// set textarea content to relative key (hour)
+function saveText(event) {
+    var target = $(event.currentTarget.previousElementSibling)
+    var keyName = target.attr('id');
+    localStorage.setItem(keyName, target.val())
+    console.log(keyName);
+}
+
+$(".saveBtn").on("click", function(event) {
+    saveText(event)
+    // localStorage.setItem("", )
+    // console.log("btn clicked");
+})
+// saveBtn.addEventListener()
