@@ -25,7 +25,6 @@ textarea {
   white-space: pre-wrap;
 }
 
-/* dunno - might be the date */
 .time-block {
   text-align: center;
   border-radius: 15px;
@@ -45,13 +44,17 @@ textarea {
   border-top: 1px dashed #000000;
   user-select: none;
   height: 100%;
+  padding: 0;
 }
 
 .hour p {
+  vertical-align: text-top;
   padding: 0;
   margin: 0;
   user-select:text;
-
+  position: absolute;
+  top: 15%;
+  right: 10%;
 }
 
 /* Colour changes of centre cell in timeblock (discription)*/
@@ -70,7 +73,7 @@ textarea {
   color: white;
 }
 
-
+/* save button */
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
